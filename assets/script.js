@@ -24,7 +24,13 @@ $(document).ready(function () {
     })
   }
   saveSchedule(); 
-  //Step Three: Grab the current time and map it to the html. 
+  //Step Three: Here we create a function to grab the current time at any moment with dayjs(), format it with day.js formatting, then map it to the html using .text() which is basically jquery's .textcontent(). Then we run the function in an interval to make the time dynamic. 
+  function timeCount(){
+  var currentTime = dayjs(); 
+  var currentTimeFormat = currentTime.format("h:mm:ss A");
+  $("#currentDay").text(currentTimeFormat); 
+  }
+  setInterval(timeCount, 1000); 
     
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
